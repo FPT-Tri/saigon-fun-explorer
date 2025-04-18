@@ -1,10 +1,10 @@
 
 import { useDatabase } from "../context/DatabaseContext";
-import ActivityCard from "../components/ActivityCard";
 import Layout from "../components/Layout";
+import DistrictCard from "../components/DistrictCard";
 
-const Index = () => {
-  const { activities } = useDatabase();
+const DistrictList = () => {
+  const { districts } = useDatabase();
 
   return (
     <Layout>
@@ -12,15 +12,15 @@ const Index = () => {
         <div className="max-w-screen-xl mx-auto">
           <section className="mb-12">
             <h1 className="text-3xl md:text-4xl font-bold text-gray-800 mb-2 animate-fade-in">
-              Khám phá Sài Gòn
+              Ẩm thực Sài Gòn
             </h1>
             <p className="text-gray-600 text-lg mb-8 animate-fade-in" style={{ animationDelay: "0.2s" }}>
-              Những trải nghiệm thú vị tại thành phố Hồ Chí Minh dành cho bạn
+              Khám phá các món ăn ngon theo từng quận thành phố Hồ Chí Minh
             </p>
 
-            <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
-              {activities.map((activity) => (
-                <ActivityCard key={activity.id} activity={activity} />
+            <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
+              {districts.map((district) => (
+                <DistrictCard key={district.id} district={district} />
               ))}
             </div>
           </section>
@@ -30,4 +30,4 @@ const Index = () => {
   );
 };
 
-export default Index;
+export default DistrictList;
