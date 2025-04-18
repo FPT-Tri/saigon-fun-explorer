@@ -1,6 +1,7 @@
 
 import { useState } from "react";
 import { getTrendingLocations } from "../services/openai";
+import { useToast } from "@/hooks/use-toast";
 
 interface AIAssistantProps {
   type: "activity" | "food";
@@ -12,6 +13,7 @@ const AIAssistant = ({ type, itemName, districtName }: AIAssistantProps) => {
   const [loading, setLoading] = useState(false);
   const [response, setResponse] = useState<string | null>(null);
   const [error, setError] = useState<string | null>(null);
+  const { toast } = useToast();
 
   const fetchTrendingPlaces = async () => {
     setLoading(true);
@@ -30,12 +32,14 @@ const AIAssistant = ({ type, itemName, districtName }: AIAssistantProps) => {
     } catch (err: any) {
       console.error("Error fetching from OpenAI:", err);
       
-      // Check for quota exceeded error
-      if (err.message && err.message.includes("quota")) {
-        setError("API OpenAI đã hết quota. Vui lòng kiểm tra lại kế hoạch thanh toán hoặc sử dụng danh sách có sẵn.");
-      } else {
-        setError("Có lỗi xảy ra khi gọi AI Assistant. Vui lòng thử lại sau.");
-      }
+      // Hiển thị lỗi trong toast
+      toast({
+        title: "Lỗi khi gọi AI Assistant",
+        description: "Hiện tại API gặp vấn đề. Đang hiển thị dữ liệu mẫu thay thế.",
+        variant: "destructive"
+      });
+      
+      setError("API OpenAI đã hết quota. Vui lòng sử dụng danh sách có sẵn hoặc thử lại sau.");
     } finally {
       setLoading(false);
     }

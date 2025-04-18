@@ -486,5 +486,206 @@ export const foodLocations: FoodLocation[] = [
     image: 'https://images.unsplash.com/photo-1509042239860-f550ce710b93?q=80&w=800',
     phone: '028 3512 3333',
     description: 'Cafe chuỗi với không gian làm việc thoải mái'
+  },
+  
+  {
+    id: 123,
+    foodId: 7,
+    districtId: 12,
+    name: 'Oromia Coffee',
+    address: '123 Nguyễn Gia Trí (D2), Phường 25, Bình Thạnh, Thành phố Hồ Chí Minh',
+    image: 'https://images.unsplash.com/photo-1507133750040-4a8f57021571?q=80&w=800',
+    phone: '028 3512 8765',
+    description: 'Quán cafe rang xay tại chỗ với hạt cafe được tuyển chọn từ các vùng nguyên liệu nổi tiếng'
+  },
+  {
+    id: 124,
+    foodId: 7,
+    districtId: 12,
+    name: 'The Hidden Elephant',
+    address: '214 Nguyễn Gia Trí (D2), Phường 25, Bình Thạnh, Thành phố Hồ Chí Minh',
+    image: 'https://images.unsplash.com/photo-1559925393-8be0ec4767c8?q=80&w=800',
+    phone: '028 3512 7890',
+    description: 'Quán cafe sân vườn ẩn mình trong con hẻm nhỏ, không gian yên tĩnh lý tưởng để thư giãn'
+  },
+  {
+    id: 125,
+    foodId: 7,
+    districtId: 12,
+    name: 'Là Việt Coffee',
+    address: '189 Nguyễn Gia Trí (D2), Phường 25, Bình Thạnh, Thành phố Hồ Chí Minh',
+    image: 'https://images.unsplash.com/photo-1501339847302-ac426a4a7cbb?q=80&w=800',
+    phone: '028 3512 6543',
+    description: 'Cafe đậm đà với hạt cafe từ Đà Lạt, không gian ấm cúng với phong cách đơn giản'
+  },
+  {
+    id: 126,
+    foodId: 6,
+    districtId: 12,
+    name: 'Tiger Sugar Bình Thạnh',
+    address: '101 Nguyễn Gia Trí (D2), Phường 25, Bình Thạnh, Thành phố Hồ Chí Minh',
+    image: 'https://images.unsplash.com/photo-1571887277169-50e4294d0a37?q=80&w=800',
+    phone: '028 3512 5432',
+    description: 'Nổi tiếng với đường nâu sọc hổ đặc trưng, cùng trân châu đường nâu béo ngậy'
+  },
+  {
+    id: 127,
+    foodId: 6,
+    districtId: 12,
+    name: 'The Alley D2',
+    address: '154 Nguyễn Gia Trí (D2), Phường 25, Bình Thạnh, Thành phố Hồ Chí Minh',
+    image: 'https://images.unsplash.com/photo-1610917047732-7a4606dcc422?q=80&w=800',
+    phone: '028 3512 9876',
+    description: 'Trà sữa cao cấp với trân châu sợi và nhiều loại topping tự làm độc đáo'
+  },
+  {
+    id: 128,
+    foodId: 1,
+    districtId: 12,
+    name: 'Phở Đức Tín',
+    address: '134 Nguyễn Gia Trí (D2), Phường 25, Bình Thạnh, Thành phố Hồ Chí Minh',
+    image: 'https://images.unsplash.com/photo-1503764654157-72d979d9af2f?q=80&w=800',
+    phone: '028 3512 2468',
+    description: 'Phở bò Nam Định với nước dùng ngọt thanh và thịt bò mềm'
+  },
+  {
+    id: 129,
+    foodId: 2,
+    districtId: 12,
+    name: 'Bánh Mì Minh Nhật',
+    address: '167 Nguyễn Gia Trí (D2), Phường 25, Bình Thạnh, Thành phố Hồ Chí Minh',
+    image: 'https://images.unsplash.com/photo-1600628421055-4d30de868b8f?q=80&w=800',
+    phone: '028 3512 1357',
+    description: 'Bánh mì thịt nướng đặc biệt với công thức sốt gia truyền và rau thơm tươi ngon'
+  },
+  {
+    id: 130,
+    foodId: 3,
+    districtId: 12,
+    name: 'Cơm Tấm D2 Express',
+    address: '201 Nguyễn Gia Trí (D2), Phường 25, Bình Thạnh, Thành phố Hồ Chí Minh',
+    image: 'https://images.unsplash.com/photo-1576749872435-ff88a73851e9?q=80&w=800',
+    phone: '028 3512 2468',
+    description: 'Cơm tấm sườn nướng, bì, chả nóng hổi với nước mắm chua ngọt đặc trưng'
+  },
+  {
+    id: 131,
+    foodId: 4,
+    districtId: 12,
+    name: 'Bún Bò Huế Cô Mai',
+    address: '212 Nguyễn Gia Trí (D2), Phường 25, Bình Thạnh, Thành phố Hồ Chí Minh',
+    image: 'https://images.unsplash.com/photo-1576749872431-1032da41a0d9?q=80&w=800',
+    phone: '028 3512 7632',
+    description: 'Bún bò Huế với nước dùng cay nồng, ăn kèm rau sống và các loại gia vị truyền thống'
+  },
+  {
+    id: 132,
+    foodId: 5,
+    districtId: 12,
+    name: 'Bánh Xèo Hai Nghĩa',
+    address: '221 Nguyễn Gia Trí (D2), Phường 25, Bình Thạnh, Thành phố Hồ Chí Minh',
+    image: 'https://images.unsplash.com/photo-1625938143262-caee281a8f1e?q=80&w=800',
+    phone: '028 3512 9876',
+    description: 'Bánh xèo miền Trung giòn rụm, ăn kèm với rau sống và nước mắm chua ngọt'
+  },
+  {
+    id: 133,
+    foodId: 8,
+    districtId: 12,
+    name: 'Bún Chả D2',
+    address: '245 Nguyễn Gia Trí (D2), Phường 25, Bình Thạnh, Thành phố Hồ Chí Minh',
+    image: 'https://images.unsplash.com/photo-1529042410759-befb1204b468?q=80&w=800',
+    phone: '028 3512 4567',
+    description: 'Bún chả Hà Nội với thịt nướng thơm phức, nước mắm chua ngọt đậm đà'
+  },
+  {
+    id: 134,
+    foodId: 9,
+    districtId: 12,
+    name: 'Hủ Tiếu Nam Vang Mười Bảy',
+    address: '267 Nguyễn Gia Trí (D2), Phường 25, Bình Thạnh, Thành phố Hồ Chí Minh',
+    image: 'https://images.unsplash.com/photo-1569718212165-3a8278d5f624?q=80&w=800',
+    phone: '028 3512 6789',
+    description: 'Hủ tiếu Nam Vang với nước dùng trong ngọt, thịt và tôm tươi'
+  },
+  {
+    id: 135,
+    foodId: 10,
+    districtId: 12,
+    name: 'Bánh Canh Cua D2',
+    address: '289 Nguyễn Gia Trí (D2), Phường 25, Bình Thạnh, Thành phố Hồ Chí Minh',
+    image: 'https://images.unsplash.com/photo-1625398407796-82280b0f6143?q=80&w=800',
+    phone: '028 3512 7890',
+    description: 'Bánh canh cua với nước dùng đặc quánh, thịt cua tươi ngon'
+  },
+  {
+    id: 136,
+    foodId: 6,
+    districtId: 12,
+    name: 'Cheese Tea D2',
+    address: '301 Nguyễn Gia Trí (D2), Phường 25, Bình Thạnh, Thành phố Hồ Chí Minh',
+    image: 'https://images.unsplash.com/photo-1558857563-c7720ca163d7?q=80&w=800',
+    phone: '028 3512 3456',
+    description: 'Trà sữa với lớp cheese cream mặn ngọt hấp dẫn và trân châu tự làm'
+  },
+  {
+    id: 137,
+    foodId: 7,
+    districtId: 12,
+    name: 'Coffee Factory',
+    address: '321 Nguyễn Gia Trí (D2), Phường 25, Bình Thạnh, Thành phố Hồ Chí Minh',
+    image: 'https://images.unsplash.com/photo-1517701604599-bb29b565090c?q=80&w=800',
+    phone: '028 3512 8765',
+    description: 'Quán cafe phong cách industrial với nhiều không gian làm việc, học tập'
+  },
+  {
+    id: 138,
+    foodId: 3,
+    districtId: 1,
+    name: 'Cơm Tấm Sài Gòn Center',
+    address: '121 Lê Lợi, Bến Nghé, Quận 1, Thành phố Hồ Chí Minh',
+    image: 'https://images.unsplash.com/photo-1574484284002-952d92456975?q=80&w=800',
+    phone: '028 3822 4567',
+    description: 'Cơm tấm cao cấp với các loại sườn nướng đặc biệt và nước mắm gia truyền'
+  },
+  {
+    id: 139,
+    foodId: 2,
+    districtId: 3,
+    name: 'Bánh Mì Phượng Sài Gòn',
+    address: '88 Võ Văn Tần, Phường 6, Quận 3, Thành phố Hồ Chí Minh',
+    image: 'https://images.unsplash.com/photo-1589208952074-24fd58deba48?q=80&w=800',
+    phone: '028 3930 8765',
+    description: 'Bánh mì thịt nguội kết hợp với patê homemade và rau thơm tươi ngon'
+  },
+  {
+    id: 140,
+    foodId: 1,
+    districtId: 5,
+    name: 'Phở Thìn Hà Nội',
+    address: '56 Trần Hưng Đạo, Phường 7, Quận 5, Thành phố Hồ Chí Minh',
+    image: 'https://images.unsplash.com/photo-1572656631137-7935297eff55?q=80&w=800',
+    phone: '028 3924 1234',
+    description: 'Phở bò xào với thịt bò áp chảo thơm ngon, hành nồi đặc trưng Hà Nội'
+  },
+  {
+    id: 141,
+    foodId: 6,
+    districtId: 7,
+    name: 'Trà Sữa Đậu Biếc',
+    address: '78 Nguyễn Lương Bằng, Tân Phú, Quận 7, Thành phố Hồ Chí Minh',
+    image: 'https://images.unsplash.com/photo-1564671546636-405cfc0ada5e?q=80&w=800',
+    phone: '028 3772 9876',
+    description: 'Trà sữa hoa đậu biếc handmade 100% tự nhiên không phẩm màu'
+  },
+  {
+    id: 142,
+    foodId: 7,
+    districtId: 2,
+    name: 'Garden Coffee & Books',
+    address: '57 Thảo Điền, Phường Thảo Điền, Quận 2, Thành phố Hồ Chí Minh',
+    image: 'https://images.unsplash.com/photo-1525610553991-2bede1a236e2?q=80&w=800',
+    phone: '028 3744 5678',
+    description: 'Quán cafe sách với không gian xanh mát và nhiều góc chụp hình đẹp'
   }
 ];
