@@ -27,9 +27,15 @@ const AIAssistant = ({ type, itemName, districtName }: AIAssistantProps) => {
 
       const result = await getTrendingLocations(prompt);
       setResponse(result);
-    } catch (err) {
-      setError("Có lỗi xảy ra khi gọi AI Assistant. Vui lòng thử lại sau.");
-      console.error(err);
+    } catch (err: any) {
+      console.error("Error fetching from OpenAI:", err);
+      
+      // Check for quota exceeded error
+      if (err.message && err.message.includes("quota")) {
+        setError("API OpenAI đã hết quota. Vui lòng kiểm tra lại kế hoạch thanh toán hoặc sử dụng danh sách có sẵn.");
+      } else {
+        setError("Có lỗi xảy ra khi gọi AI Assistant. Vui lòng thử lại sau.");
+      }
     } finally {
       setLoading(false);
     }

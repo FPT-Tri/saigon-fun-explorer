@@ -39,3 +39,20 @@ export interface FoodLocation {
   phone?: string;
   description?: string;
 }
+
+export interface Workshop {
+  id: number;
+  name: string;
+  image: string;
+  description: string;
+}
+
+export interface WorkshopLocation {
+  id: number;
+  workshopId: number;
+  name: string;
+  address: string;
+  image: string;
+  phone?: string;
+  description?: string;
+}

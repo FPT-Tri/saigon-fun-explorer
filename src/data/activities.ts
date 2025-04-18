@@ -1,4 +1,3 @@
-
 import { Activity, ActivityLocation } from '../types/database';
 
 export const activities: Activity[] = [
@@ -109,6 +108,30 @@ export const activities: Activity[] = [
     name: 'Nghe acoutic',
     image: 'https://images.unsplash.com/photo-1514320291840-2e0a9bf2a9ae?q=80&w=800',
     description: 'Thưởng thức âm nhạc acoustic trong không gian ấm cúng'
+  },
+  {
+    id: 19,
+    name: 'Workshop làm nến thơm',
+    image: 'https://images.unsplash.com/photo-1602522381157-30cb6229a28e?q=80&w=800',
+    description: 'Tự tay làm nến thơm để trang trí không gian sống'
+  },
+  {
+    id: 20,
+    name: 'Workshop làm bánh',
+    image: 'https://images.unsplash.com/photo-1605522546242-b769a9bc489b?q=80&w=800',
+    description: 'Học cách làm bánh ngọt cùng người yêu'
+  },
+  {
+    id: 21,
+    name: 'Karaoke VIP',
+    image: 'https://images.unsplash.com/photo-1619983081563-430f63602796?q=80&w=800',
+    description: 'Hát karaoke trong không gian sang trọng'
+  },
+  {
+    id: 22,
+    name: 'Vẽ tranh cặp đôi',
+    image: 'https://images.unsplash.com/photo-1547826039-bfc35e0f1ea8?q=80&w=800',
+    description: 'Cùng người yêu sáng tạo tác phẩm nghệ thuật đôi'
   }
 ];
 
@@ -130,6 +153,24 @@ export const activityLocations: ActivityLocation[] = [
     image: 'https://images.unsplash.com/photo-1500932334442-8761ee4810a7?q=80&w=800',
     phone: '028 3899 3888'
   },
+  {
+    id: 101,
+    activityId: 1,
+    name: 'Topgolf Saigon',
+    address: '123 Đ. Nguyễn Huệ, Phường Bến Nghé, Quận 1, Thành phố Hồ Chí Minh',
+    image: 'https://images.unsplash.com/photo-1530631673369-dc4bd71fc1a4?q=80&w=800',
+    phone: '028 3822 4567',
+    description: 'Trải nghiệm golf hiện đại kết hợp với công nghệ giải trí'
+  },
+  {
+    id: 102,
+    activityId: 1,
+    name: 'PuttPutt Mini Golf Garden',
+    address: '45 Đ. Thảo Điền, Phường Thảo Điền, Quận 2, Thành phố Hồ Chí Minh',
+    image: 'https://images.unsplash.com/photo-1592919505780-303950717480?q=80&w=800',
+    phone: '090 123 4567',
+    description: 'Sân golf mini ngoài trời với nhiều thử thách thú vị'
+  },
   
   // Đánh bóng chày
   {
@@ -139,6 +180,15 @@ export const activityLocations: ActivityLocation[] = [
     address: 'Khu Đô Thị Vạn Phúc, Thủ Đức, Thành phố Hồ Chí Minh',
     image: 'https://images.unsplash.com/photo-1491553895911-0055eca6402d?q=80&w=800',
     phone: '090 123 4567'
+  },
+  {
+    id: 103,
+    activityId: 2,
+    name: 'Diamond Park Baseball Center',
+    address: '30 Đ. Nguyễn Cơ Thạch, Phường An Lợi Đông, Quận 2, Thành phố Hồ Chí Minh',
+    image: 'https://images.unsplash.com/photo-1508344210624-009b13eae0cf?q=80&w=800',
+    phone: '090 456 7890',
+    description: 'Sân tập bóng chày hiện đại với các huấn luyện viên chuyên nghiệp'
   },
   
   // Trượt patin
@@ -157,6 +207,15 @@ export const activityLocations: ActivityLocation[] = [
     image: 'https://images.unsplash.com/photo-1576093776693-cc8c749905cd?q=80&w=800',
     phone: '028 3925 0588'
   },
+  {
+    id: 104,
+    activityId: 3,
+    name: 'RollerWorld Saigon',
+    address: '56 Đ. Lê Văn Sỹ, Phường 2, Quận Tân Bình, Thành phố Hồ Chí Minh',
+    image: 'https://images.unsplash.com/photo-1576080795971-2c20fd8b3f83?q=80&w=800',
+    phone: '028 3991 2345',
+    description: 'Khu trượt patin trong nhà với sàn chuyên nghiệp và an toàn'
+  },
   
   // Hoạ kim sa
   {
@@ -165,6 +224,15 @@ export const activityLocations: ActivityLocation[] = [
     name: 'Art Studio Hoạ Kim Sa',
     address: '184 Đ. Pasteur, Phường 6, Quận 3, Thành phố Hồ Chí Minh',
     image: 'https://images.unsplash.com/photo-1602090478796-f74e8424626a?q=80&w=800'
+  },
+  {
+    id: 105,
+    activityId: 4,
+    name: 'Kim Sa Art Center',
+    address: '75 Đ. Trần Quốc Thảo, Phường 7, Quận 3, Thành phố Hồ Chí Minh',
+    image: 'https://images.unsplash.com/photo-1456086272160-b28b0645b729?q=80&w=800',
+    phone: '028 3933 4567',
+    description: 'Trung tâm nghệ thuật kim sa với các khóa học cho mọi lứa tuổi'
   },
   
   // Làm gốm
@@ -175,6 +243,15 @@ export const activityLocations: ActivityLocation[] = [
     address: '18/10 Đ. Nguyễn Thị Minh Khai, Đa Kao, Quận 1, Thành phố Hồ Chí Minh',
     image: 'https://images.unsplash.com/photo-1552863016-c96c7972ab4b?q=80&w=800',
     phone: '028 3910 1416'
+  },
+  {
+    id: 106,
+    activityId: 5,
+    name: 'Sài Gòn Ceramic Studio',
+    address: '100 Đ. Trần Não, Phường An Khánh, Quận 2, Thành phố Hồ Chí Minh',
+    image: 'https://images.unsplash.com/photo-1565193566173-7a0ee3dbe261?q=80&w=800',
+    phone: '090 789 0123',
+    description: 'Studio gốm hiện đại với các khóa học cho cá nhân và cặp đôi'
   },
   
   // Cafe landmark 81
@@ -303,5 +380,85 @@ export const activityLocations: ActivityLocation[] = [
     address: '6E Ngô Thời Nhiệm, Phường 7, Quận 3, Thành phố Hồ Chí Minh',
     image: 'https://images.unsplash.com/photo-1511671782779-c97d3d27a1d4?q=80&w=800',
     phone: '028 3933 0603'
+  },
+  
+  // Workshop làm nến thơm
+  {
+    id: 107,
+    activityId: 19,
+    name: 'Aromatic Candle Workshop',
+    address: '200 Đ. Nam Kỳ Khởi Nghĩa, Phường 6, Quận 3, Thành phố Hồ Chí Minh',
+    image: 'https://images.unsplash.com/photo-1608181831718-c327bdfb9083?q=80&w=800',
+    phone: '028 3933 7890',
+    description: 'Workshop hướng dẫn làm nến thơm handmade từ sáp ong tự nhiên'
+  },
+  {
+    id: 108,
+    activityId: 19,
+    name: 'Candle Light Studio',
+    address: '56 Đ. Thảo Điền, Phường Thảo Điền, Quận 2, Thành phố Hồ Chí Minh',
+    image: 'https://images.unsplash.com/photo-1603006939140-53ce19cd9982?q=80&w=800',
+    phone: '090 456 1234',
+    description: 'Studio chuyên dạy làm nến thơm nghệ thuật với nhiều mùi hương độc đáo'
+  },
+  
+  // Workshop làm bánh
+  {
+    id: 109,
+    activityId: 20,
+    name: 'Bake Me Up',
+    address: '15 Đ. Nguyễn Thị Minh Khai, Phường Bến Nghé, Quận 1, Thành phố Hồ Chí Minh',
+    image: 'https://images.unsplash.com/photo-1486427944299-d1955d23e34d?q=80&w=800',
+    phone: '028 3823 4567',
+    description: 'Workshop dạy làm bánh ngọt Âu với công thức chuẩn từ chef chuyên nghiệp'
+  },
+  {
+    id: 110,
+    activityId: 20,
+    name: 'Sweet Baking Studio',
+    address: '78 Đ. Trần Quang Diệu, Phường 14, Quận 3, Thành phố Hồ Chí Minh',
+    image: 'https://images.unsplash.com/photo-1608830597604-619220679440?q=80&w=800',
+    phone: '028 3930 1234',
+    description: 'Studio dạy làm bánh cho cặp đôi với không gian lãng mạn'
+  },
+  
+  // Karaoke VIP
+  {
+    id: 111,
+    activityId: 21,
+    name: 'Kingdom Karaoke',
+    address: '123 Đ. Nguyễn Du, Phường Bến Thành, Quận 1, Thành phố Hồ Chí Minh',
+    image: 'https://images.unsplash.com/photo-1470229722913-7c0e2dbbafd3?q=80&w=800',
+    phone: '028 3822 9876',
+    description: 'Phòng hát karaoke VIP sang trọng với hệ thống âm thanh đẳng cấp'
+  },
+  {
+    id: 112,
+    activityId: 21,
+    name: 'Luxury Voice Karaoke',
+    address: '56 Đ. Hai Bà Trưng, Phường Tân Định, Quận 1, Thành phố Hồ Chí Minh',
+    image: 'https://images.unsplash.com/photo-1516450360452-9312f5e86fc7?q=80&w=800',
+    phone: '028 3820 5678',
+    description: 'Hệ thống phòng hát karaoke đẳng cấp 5 sao với dịch vụ đồ ăn thức uống'
+  },
+  
+  // Vẽ tranh cặp đôi
+  {
+    id: 113,
+    activityId: 22,
+    name: 'Couple Art Studio',
+    address: '45 Đ. Thảo Điền, Phường Thảo Điền, Quận 2, Thành phố Hồ Chí Minh',
+    image: 'https://images.unsplash.com/photo-1460661419201-fd4cecdf8a8b?q=80&w=800',
+    phone: '090 123 9876',
+    description: 'Studio dạy vẽ tranh dành riêng cho các cặp đôi muốn lưu giữ kỷ niệm'
+  },
+  {
+    id: 114,
+    activityId: 22,
+    name: 'Love & Art Workshop',
+    address: '200 Đ. Nguyễn Trãi, Phường Nguyễn Cư Trinh, Quận 1, Thành phố Hồ Chí Minh',
+    image: 'https://images.unsplash.com/photo-1513364776144-60967b0f800f?q=80&w=800',
+    phone: '028 3925 6789',
+    description: 'Workshop vẽ tranh dành cho cặp đôi với không gian lãng mạn'
   }
 ];
