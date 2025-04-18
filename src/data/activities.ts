@@ -123,9 +123,9 @@ export const activities: Activity[] = [
   },
   {
     id: 21,
-    name: 'Karaoke VIP',
-    image: 'https://images.unsplash.com/photo-1619983081563-430f63602796?q=80&w=800',
-    description: 'Hát karaoke trong không gian sang trọng'
+    name: 'Karaoke Music Box',
+    image: 'https://images.unsplash.com/photo-1598653222000-6b7b7a552625?q=80&w=800',
+    description: 'Hát karaoke trong không gian ấm cúng dành cho các bạn trẻ'
   },
   {
     id: 22,
@@ -136,7 +136,6 @@ export const activities: Activity[] = [
 ];
 
 export const activityLocations: ActivityLocation[] = [
-  // Golf mini
   {
     id: 1,
     activityId: 1,
@@ -172,7 +171,6 @@ export const activityLocations: ActivityLocation[] = [
     description: 'Sân golf mini ngoài trời với nhiều thử thách thú vị'
   },
   
-  // Đánh bóng chày
   {
     id: 3,
     activityId: 2,
@@ -191,7 +189,6 @@ export const activityLocations: ActivityLocation[] = [
     description: 'Sân tập bóng chày hiện đại với các huấn luyện viên chuyên nghiệp'
   },
   
-  // Trượt patin
   {
     id: 4,
     activityId: 3,
@@ -217,7 +214,6 @@ export const activityLocations: ActivityLocation[] = [
     description: 'Khu trượt patin trong nhà với sàn chuyên nghiệp và an toàn'
   },
   
-  // Hoạ kim sa
   {
     id: 6,
     activityId: 4,
@@ -235,7 +231,6 @@ export const activityLocations: ActivityLocation[] = [
     description: 'Trung tâm nghệ thuật kim sa với các khóa học cho mọi lứa tuổi'
   },
   
-  // Làm gốm
   {
     id: 7,
     activityId: 5,
@@ -254,7 +249,6 @@ export const activityLocations: ActivityLocation[] = [
     description: 'Studio gốm hiện đại với các khóa học cho cá nhân và cặp đôi'
   },
   
-  // Cafe landmark 81
   {
     id: 8,
     activityId: 6,
@@ -264,7 +258,6 @@ export const activityLocations: ActivityLocation[] = [
     phone: '028 3623 1888'
   },
   
-  // Go cart
   {
     id: 9,
     activityId: 7,
@@ -274,7 +267,6 @@ export const activityLocations: ActivityLocation[] = [
     phone: '028 5412 1919'
   },
   
-  // Global city
   {
     id: 10,
     activityId: 8,
@@ -283,7 +275,6 @@ export const activityLocations: ActivityLocation[] = [
     image: 'https://images.unsplash.com/photo-1444723121867-7a241cacace9?q=80&w=800'
   },
   
-  // Game center gigamall
   {
     id: 11,
     activityId: 9,
@@ -292,7 +283,6 @@ export const activityLocations: ActivityLocation[] = [
     image: 'https://images.unsplash.com/photo-1588463463625-eac82ede9540?q=80&w=800'
   },
   
-  // Ca kịch chợ lớn
   {
     id: 12,
     activityId: 10,
@@ -302,7 +292,6 @@ export const activityLocations: ActivityLocation[] = [
     phone: '028 3836 7163'
   },
   
-  // Trượt băng
   {
     id: 13,
     activityId: 11,
@@ -312,7 +301,6 @@ export const activityLocations: ActivityLocation[] = [
     phone: '028 3620 5678'
   },
   
-  // Bắn súng
   {
     id: 14,
     activityId: 12,
@@ -322,7 +310,6 @@ export const activityLocations: ActivityLocation[] = [
     phone: '097 120 2727'
   },
   
-  // Bắn cung
   {
     id: 15,
     activityId: 13,
@@ -332,7 +319,6 @@ export const activityLocations: ActivityLocation[] = [
     phone: '090 789 1234'
   },
   
-  // Jump arena
   {
     id: 16,
     activityId: 14,
@@ -342,7 +328,6 @@ export const activityLocations: ActivityLocation[] = [
     phone: '028 3995 9888'
   },
   
-  // Xplay zone quận 10
   {
     id: 17,
     activityId: 15,
@@ -352,7 +337,6 @@ export const activityLocations: ActivityLocation[] = [
     phone: '028 3868 4042'
   },
   
-  // Escape room
   {
     id: 18,
     activityId: 16,
@@ -362,7 +346,6 @@ export const activityLocations: ActivityLocation[] = [
     phone: '090 994 8884'
   },
   
-  // Playstation
   {
     id: 19,
     activityId: 17,
@@ -372,17 +355,15 @@ export const activityLocations: ActivityLocation[] = [
     phone: '090 123 7890'
   },
   
-  // Nghe acoutic
   {
     id: 20,
     activityId: 18,
     name: 'Acoustic Bar',
     address: '6E Ngô Thời Nhiệm, Phường 7, Quận 3, Thành phố Hồ Chí Minh',
-    image: 'https://images.unsplash.com/photo-1511671782779-c97d3d27a1d4?q=80&w=800',
+    image: 'https://images.unsplash.com/photo-1511671782779-c97d3d23e34d?q=80&w=800',
     phone: '028 3933 0603'
   },
   
-  // Workshop làm nến thơm
   {
     id: 107,
     activityId: 19,
@@ -402,7 +383,6 @@ export const activityLocations: ActivityLocation[] = [
     description: 'Studio chuyên dạy làm nến thơm nghệ thuật với nhiều mùi hương độc đáo'
   },
   
-  // Workshop làm bánh
   {
     id: 109,
     activityId: 20,
@@ -422,27 +402,25 @@ export const activityLocations: ActivityLocation[] = [
     description: 'Studio dạy làm bánh cho cặp đôi với không gian lãng mạn'
   },
   
-  // Karaoke VIP
   {
     id: 111,
     activityId: 21,
-    name: 'Kingdom Karaoke',
-    address: '123 Đ. Nguyễn Du, Phường Bến Thành, Quận 1, Thành phố Hồ Chí Minh',
-    image: 'https://images.unsplash.com/photo-1470229722913-7c0e2dbbafd3?q=80&w=800',
-    phone: '028 3822 9876',
-    description: 'Phòng hát karaoke VIP sang trọng với hệ thống âm thanh đẳng cấp'
+    name: 'Music Box Phan Xích Long',
+    address: '234 Phan Xích Long, Phường 2, Phú Nhuận, Thành phố Hồ Chí Minh',
+    image: 'https://images.unsplash.com/photo-1574701148212-8518049c7b2c?q=80&w=800',
+    phone: '028 3844 5678',
+    description: 'Phòng hát ấm cúng giá sinh viên với không gian trẻ trung'
   },
   {
     id: 112,
     activityId: 21,
-    name: 'Luxury Voice Karaoke',
-    address: '56 Đ. Hai Bà Trưng, Phường Tân Định, Quận 1, Thành phố Hồ Chí Minh',
-    image: 'https://images.unsplash.com/photo-1516450360452-9312f5e86fc7?q=80&w=800',
-    phone: '028 3820 5678',
-    description: 'Hệ thống phòng hát karaoke đẳng cấp 5 sao với dịch vụ đồ ăn thức uống'
+    name: 'K-Box Music Studio',
+    address: '45 Huỳnh Khương An, Phường 5, Gò Vấp, Thành phố Hồ Chí Minh',
+    image: 'https://images.unsplash.com/photo-1470225620780-dba8ba36b745?q=80&w=800',
+    phone: '028 3894 3456',
+    description: 'Karaoke bình dân với âm thanh chất lượng và giá cả phải chăng'
   },
   
-  // Vẽ tranh cặp đôi
   {
     id: 113,
     activityId: 22,

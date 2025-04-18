@@ -1,4 +1,3 @@
-
 import { District, Food, FoodLocation } from '../types/database';
 
 export const districts: District[] = [
@@ -143,7 +142,6 @@ export const foods: Food[] = [
 ];
 
 export const foodLocations: FoodLocation[] = [
-  // Phở - Quận 1
   {
     id: 1,
     foodId: 1,
@@ -153,7 +151,6 @@ export const foodLocations: FoodLocation[] = [
     image: 'https://images.unsplash.com/photo-1583032015879-e5022cb87c3b?q=80&w=800',
     phone: '028 3855 0158'
   },
-  // Phở - Quận 3
   {
     id: 2,
     foodId: 1,
@@ -163,7 +160,6 @@ export const foodLocations: FoodLocation[] = [
     image: 'https://images.unsplash.com/photo-1623341214825-9f4f963727da?q=80&w=800',
     phone: '028 3829 7943'
   },
-  // Phở - Quận Bình Thạnh (new)
   {
     id: 101,
     foodId: 1,
@@ -175,7 +171,6 @@ export const foodLocations: FoodLocation[] = [
     description: 'Phở bò truyền thống với nước dùng đậm đà'
   },
   
-  // Bánh mì - Quận 1
   {
     id: 3,
     foodId: 2,
@@ -185,7 +180,6 @@ export const foodLocations: FoodLocation[] = [
     image: 'https://images.unsplash.com/photo-1600626334697-3d7825d50087?q=80&w=800',
     phone: '028 3925 0885'
   },
-  // Bánh mì - Quận 3
   {
     id: 4,
     foodId: 2,
@@ -195,7 +189,6 @@ export const foodLocations: FoodLocation[] = [
     image: 'https://images.unsplash.com/photo-1633352615955-f0c99e8b7e5c?q=80&w=800',
     phone: '028 3844 4306'
   },
-  // Bánh mì - Quận 7 (new)
   {
     id: 102,
     foodId: 2,
@@ -207,7 +200,6 @@ export const foodLocations: FoodLocation[] = [
     description: 'Bánh mì thịt nguội truyền thống với công thức gia truyền'
   },
   
-  // Cơm tấm - Quận 1
   {
     id: 5,
     foodId: 3,
@@ -217,7 +209,6 @@ export const foodLocations: FoodLocation[] = [
     image: 'https://images.unsplash.com/photo-1516684808441-d7ca5117a3e1?q=80&w=800',
     phone: '028 3855 3475'
   },
-  // Cơm tấm - Quận 3
   {
     id: 6,
     foodId: 3,
@@ -227,7 +218,6 @@ export const foodLocations: FoodLocation[] = [
     image: 'https://images.unsplash.com/photo-1564671165093-20688ff1fffa?q=80&w=800',
     phone: '028 3932 0486'
   },
-  // Cơm tấm - Quận Tân Bình (new)
   {
     id: 103,
     foodId: 3,
@@ -239,7 +229,6 @@ export const foodLocations: FoodLocation[] = [
     description: 'Cơm tấm sườn bì chả thơm ngon với nước mắm pha chế đặc biệt'
   },
   
-  // Bún bò Huế - Quận 1
   {
     id: 7,
     foodId: 4,
@@ -249,7 +238,6 @@ export const foodLocations: FoodLocation[] = [
     image: 'https://images.unsplash.com/photo-1603105948336-9c0787c7c8d2?q=80&w=800',
     phone: '028 3823 0373'
   },
-  // Bún bò Huế - Quận Phú Nhuận (new)
   {
     id: 104,
     foodId: 4,
@@ -261,7 +249,6 @@ export const foodLocations: FoodLocation[] = [
     description: 'Bún bò Huế cay nồng với nước dùng đậm đà'
   },
   
-  // Bánh xèo - Quận 1
   {
     id: 8,
     foodId: 5,
@@ -271,7 +258,6 @@ export const foodLocations: FoodLocation[] = [
     image: 'https://images.unsplash.com/photo-1625938145744-14fc860dab44?q=80&w=800',
     phone: '028 3824 1110'
   },
-  // Bánh xèo - Quận Gò Vấp (new)
   {
     id: 105,
     foodId: 5,
@@ -283,7 +269,6 @@ export const foodLocations: FoodLocation[] = [
     description: 'Bánh xèo giòn rụm với nhân tôm, thịt và giá đỗ'
   },
   
-  // Trà sữa - Quận 1
   {
     id: 9,
     foodId: 6,
@@ -293,7 +278,6 @@ export const foodLocations: FoodLocation[] = [
     image: 'https://images.unsplash.com/photo-1527424803343-565242c3a6c8?q=80&w=800',
     phone: '028 3821 8699'
   },
-  // Trà sữa - Quận 7
   {
     id: 10,
     foodId: 6,
@@ -303,7 +287,6 @@ export const foodLocations: FoodLocation[] = [
     image: 'https://images.unsplash.com/photo-1561668158-4932c6a450b4?q=80&w=800',
     phone: '028 3636 7799'
   },
-  // Trà sữa - Quận Bình Thạnh (new)
   {
     id: 106,
     foodId: 6,
@@ -314,7 +297,6 @@ export const foodLocations: FoodLocation[] = [
     phone: '028 3510 4321',
     description: 'Trà sữa trân châu đường đen nổi tiếng với công thức đặc biệt'
   },
-  // Trà sữa - Quận 3 (new)
   {
     id: 107,
     foodId: 6,
@@ -326,7 +308,6 @@ export const foodLocations: FoodLocation[] = [
     description: 'Trà sữa với lớp đường nâu sọc hổ đặc trưng'
   },
   
-  // Cafe - Quận 1
   {
     id: 11,
     foodId: 7,
@@ -336,7 +317,6 @@ export const foodLocations: FoodLocation[] = [
     image: 'https://images.unsplash.com/photo-1511081692775-05d0f180a065?q=80&w=800',
     phone: '028 7107 8079'
   },
-  // Cafe - Quận Bình Thạnh
   {
     id: 12,
     foodId: 7,
@@ -346,7 +326,6 @@ export const foodLocations: FoodLocation[] = [
     image: 'https://images.unsplash.com/photo-1600093463592-8e36ae95ef56?q=80&w=800',
     phone: '028 3824 6801'
   },
-  // Cafe - Quận 2 (new)
   {
     id: 108,
     foodId: 7,
@@ -357,7 +336,6 @@ export const foodLocations: FoodLocation[] = [
     phone: '028 3744 5678',
     description: 'Quán cafe phong cách hiện đại với không gian thoáng đãng'
   },
-  // Cafe - Quận 7 (new)
   {
     id: 109,
     foodId: 7,
@@ -369,7 +347,6 @@ export const foodLocations: FoodLocation[] = [
     description: 'Quán cafe sân vườn với không gian xanh mát và đồ uống đa dạng'
   },
   
-  // Bún chả - Quận 1
   {
     id: 13,
     foodId: 8,
@@ -379,7 +356,6 @@ export const foodLocations: FoodLocation[] = [
     image: 'https://images.unsplash.com/photo-1551326844-4df70f78d0e9?q=80&w=800',
     phone: '028 3822 8228'
   },
-  // Bún chả - Quận 3 (new)
   {
     id: 110,
     foodId: 8,
@@ -391,7 +367,6 @@ export const foodLocations: FoodLocation[] = [
     description: 'Bún chả truyền thống Hà Nội với nước chấm chua ngọt đặc trưng'
   },
   
-  // Hủ tiếu - Quận 5
   {
     id: 14,
     foodId: 9,
@@ -401,7 +376,6 @@ export const foodLocations: FoodLocation[] = [
     image: 'https://images.unsplash.com/photo-1553163147-622ab57be1c7?q=80&w=800',
     phone: '028 3923 4239'
   },
-  // Hủ tiếu - Quận 8 (new)
   {
     id: 111,
     foodId: 9,
@@ -413,7 +387,6 @@ export const foodLocations: FoodLocation[] = [
     description: 'Hủ tiếu Mỹ Tho với nước dùng trong ngọt và thịt heo tươi'
   },
   
-  // Bánh canh - Quận 10
   {
     id: 15,
     foodId: 10,
@@ -423,7 +396,6 @@ export const foodLocations: FoodLocation[] = [
     image: 'https://images.unsplash.com/photo-1617091413746-b948cc306d2a?q=80&w=800',
     phone: '028 3991 2413'
   },
-  // Bánh canh - Quận Phú Nhuận (new)
   {
     id: 112,
     foodId: 10,
@@ -433,5 +405,86 @@ export const foodLocations: FoodLocation[] = [
     image: 'https://images.unsplash.com/photo-1530629013299-6cb10d168419?q=80&w=800',
     phone: '028 3517 3456',
     description: 'Bánh canh ghẹ đặc biệt với nước dùng đậm đà và ghẹ tươi'
+  },
+  
+  {
+    id: 115,
+    foodId: 1,
+    districtId: 12,
+    name: 'Phở Hà Nội D2',
+    address: '123 Nguyễn Gia Trí (D2), Phường 25, Bình Thạnh, Thành phố Hồ Chí Minh',
+    image: 'https://images.unsplash.com/photo-1582878826629-29b7ad1cdc43?q=80&w=800',
+    phone: '028 3512 4567',
+    description: 'Phở Hà Nội truyền thống với nước dùng đậm đà'
+  },
+  {
+    id: 116,
+    foodId: 6,
+    districtId: 12,
+    name: 'Gong Cha D2',
+    address: '45 Nguyễn Gia Trí (D2), Phường 25, Bình Thạnh, Thành phố Hồ Chí Minh',
+    image: 'https://images.unsplash.com/photo-1527424803343-565242c3a6c7?q=80&w=800',
+    phone: '028 3512 8888',
+    description: 'Trà sữa Đài Loan với nhiều topping đa dạng'
+  },
+  {
+    id: 117,
+    foodId: 7,
+    districtId: 12,
+    name: 'The Running Bean',
+    address: '156 Nguyễn Gia Trí (D2), Phường 25, Bình Thạnh, Thành phố Hồ Chí Minh',
+    image: 'https://images.unsplash.com/photo-1495474472287-4d71bcdd2085?q=80&w=800',
+    phone: '028 3512 9999',
+    description: 'Quán cafe với không gian xanh mát và view đẹp'
+  },
+  {
+    id: 118,
+    foodId: 6,
+    districtId: 12,
+    name: 'KOI Thé D2',
+    address: '178 Nguyễn Gia Trí (D2), Phường 25, Bình Thạnh, Thành phố Hồ Chí Minh',
+    image: 'https://images.unsplash.com/photo-1527424803343-565242c3a6c7?q=80&w=800',
+    phone: '028 3512 7777',
+    description: 'Trà sữa Đài Loan với trân châu tươi ngon'
+  },
+  {
+    id: 119,
+    foodId: 7,
+    districtId: 12,
+    name: 'Cheese Coffee D2',
+    address: '200 Nguyễn Gia Trí (D2), Phường 25, Bình Thạnh, Thành phố Hồ Chí Minh',
+    image: 'https://images.unsplash.com/photo-1509042239860-f550ce710b93?q=80&w=800',
+    phone: '028 3512 6666',
+    description: 'Cafe phong cách Hàn Quốc với các loại bánh ngọt'
+  },
+  {
+    id: 120,
+    foodId: 3,
+    districtId: 12,
+    name: 'Cơm Tấm D2',
+    address: '234 Nguyễn Gia Trí (D2), Phường 25, Bình Thạnh, Thành phố Hồ Chí Minh',
+    image: 'https://images.unsplash.com/photo-1563379926898-05f4575a45d8?q=80&w=800',
+    phone: '028 3512 5555',
+    description: 'Cơm tấm sườn bì chả thơm ngon'
+  },
+  {
+    id: 121,
+    foodId: 2,
+    districtId: 12,
+    name: 'Bánh Mì D2',
+    address: '256 Nguyễn Gia Trí (D2), Phường 25, Bình Thạnh, Thành phố Hồ Chí Minh',
+    image: 'https://images.unsplash.com/photo-1600626334697-3d7825d50087?q=80&w=800',
+    phone: '028 3512 4444',
+    description: 'Bánh mì thịt nguội và patê thơm ngon'
+  },
+  {
+    id: 122,
+    foodId: 7,
+    districtId: 12,
+    name: 'The Coffee House D2',
+    address: '278 Nguyễn Gia Trí (D2), Phường 25, Bình Thạnh, Thành phố Hồ Chí Minh',
+    image: 'https://images.unsplash.com/photo-1509042239860-f550ce710b93?q=80&w=800',
+    phone: '028 3512 3333',
+    description: 'Cafe chuỗi với không gian làm việc thoải mái'
   }
 ];
