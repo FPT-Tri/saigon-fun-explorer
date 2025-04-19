@@ -1,3 +1,4 @@
+
 import { useParams, useNavigate } from "react-router-dom";
 import { useDatabase } from "../context/DatabaseContext";
 import Layout from "../components/Layout";
@@ -8,7 +9,7 @@ import { AddLocationDialog } from "../components/AddLocationDialog";
 const DistrictDetail = () => {
   const { id } = useParams<{ id: string }>();
   const navigate = useNavigate();
-  const { getDistrictById, getFoodsByDistrict, foods } = useDatabase();
+  const { getDistrictById, getFoodsByDistrict } = useDatabase();
 
   const district = getDistrictById(parseInt(id || "0"));
   const districtFoods = getFoodsByDistrict(parseInt(id || "0"));
@@ -41,8 +42,8 @@ const DistrictDetail = () => {
                 </div>
 
                 <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
-                  {districtFoods.map((food) => (
-                    <FoodCard key={food.id} food={food} districtId={district.id} />
+                  {districtFoods.map((foodLocation) => (
+                    <FoodCard key={foodLocation.id} food={foodLocation} districtId={district.id} />
                   ))}
                 </div>
               </section>

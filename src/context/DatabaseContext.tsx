@@ -1,3 +1,4 @@
+
 import React, { createContext, useContext, ReactNode } from "react";
 import { activities, activityLocations, districts, foods, foodLocations } from "../data";
 import { Activity, ActivityLocation, District, Food, FoodLocation } from "../types/database";
