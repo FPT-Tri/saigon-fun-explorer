@@ -9,7 +9,7 @@ import { AddLocationDialog } from "../components/AddLocationDialog";
 const DistrictDetail = () => {
   const { id } = useParams<{ id: string }>();
   const navigate = useNavigate();
-  const { getDistrictById, getFoodsByDistrict } = useDatabase();
+  const { getDistrictById, getFoodsByDistrict, getFoodById } = useDatabase();
 
   const district = getDistrictById(parseInt(id || "0"));
   const districtFoods = getFoodsByDistrict(parseInt(id || "0"));
@@ -42,9 +42,12 @@ const DistrictDetail = () => {
                 </div>
 
                 <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
-                  {districtFoods.map((foodLocation) => (
-                    <FoodCard key={foodLocation.id} food={foodLocation} districtId={district.id} />
-                  ))}
+                  {districtFoods.map((foodLocation) => {
+                    const food = getFoodById(foodLocation.foodId);
+                    return (
+                      <FoodCard key={foodLocation.id} food={food!} districtId={district.id} />
+                    );
+                  })}
                 </div>
               </section>
             </>
