@@ -22,9 +22,9 @@ const AIAssistant = ({ type, itemName, districtName }: AIAssistantProps) => {
       let prompt = "";
       
       if (type === "activity") {
-        prompt = `List các địa điểm ${itemName} mới và đang hot ở TP.HCM. Hãy cho tôi tên địa điểm, địa chỉ, số điện thoại (nếu có), và một mô tả ngắn. Liệt kê tối đa 5 địa điểm.`;
+        prompt = `List 5 địa điểm "${itemName}" nổi tiếng và đang hot ở TP.HCM. Hãy cho tôi tên địa điểm cụ thể, địa chỉ chính xác, số điện thoại (nếu có), và một mô tả ngắn về đặc điểm nổi bật của địa điểm. Chỉ liệt kê tối đa 5 địa điểm phù hợp nhất với hoạt động "${itemName}".`;
       } else {
-        prompt = `List các quán ${itemName} ngon và đang hot ở ${districtName}, TP.HCM. Hãy cho tôi tên quán, địa chỉ, số điện thoại (nếu có), và đặc sản. Liệt kê tối đa 5 địa điểm.`;
+        prompt = `List 5 quán "${itemName}" ngon và nổi tiếng ở ${districtName}, TP.HCM, đặc biệt là khu vực đường Nguyễn Gia Trí (D2) nếu có. Hãy cho tôi tên quán cụ thể, địa chỉ chính xác, số điện thoại (nếu có), và đặc sản hay món nổi bật nhất của quán. Chỉ liệt kê tối đa 5 địa điểm phù hợp nhất với món "${itemName}" tại ${districtName}.`;
       }
 
       const result = await getTrendingLocations(prompt);
