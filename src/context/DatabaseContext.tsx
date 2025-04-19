@@ -1,7 +1,5 @@
-
 import React, { createContext, useContext, ReactNode } from "react";
-import { activities, activityLocations } from "../data/activities";
-import { districts, foods, foodLocations } from "../data/districts";
+import { activities, activityLocations, districts, foods, foodLocations } from "../data";
 import { Activity, ActivityLocation, District, Food, FoodLocation } from "../types/database";
 
 interface DatabaseContextProps {
