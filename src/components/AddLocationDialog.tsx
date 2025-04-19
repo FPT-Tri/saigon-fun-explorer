@@ -10,6 +10,8 @@ import * as z from "zod";
 import { PlusCircle } from "lucide-react";
 import { useToast } from "@/hooks/use-toast";
 import { useDatabase } from "../context/DatabaseContext";
+import { useSupabase } from "@/hooks/use-supabase";
+import { Dialog as DialogPrimitive } from "@radix-ui/react-dialog";
 
 const formSchema = z.object({
   name: z.string().min(1, "Tên địa điểm không được để trống"),
@@ -28,7 +30,8 @@ interface AddLocationDialogProps {
 
 export function AddLocationDialog({ type }: AddLocationDialogProps) {
   const { activities, districts, foods } = useDatabase();
-  const { toast } = useToast();
+  const { addLocation } = useSupabase();
+  const [open, setOpen] = React.useState(false);
   
   const form = useForm<z.infer<typeof formSchema>>({
     resolver: zodResolver(formSchema),
@@ -41,13 +44,23 @@ export function AddLocationDialog({ type }: AddLocationDialogProps) {
     },
   });
 
-  const onSubmit = (values: z.infer<typeof formSchema>) => {
-    // In a real app, this would call an API to save the data
-    toast({
-      title: "Thông báo",
-      description: "Chức năng này sẽ được kích hoạt sau khi tích hợp với backend.",
-    });
-    console.log(values);
+  const onSubmit = async (values: z.infer<typeof formSchema>) => {
+    const locationData = {
+      name: values.name,
+      address: values.address,
+      phone: values.phone,
+      image: values.image,
+      description: values.description,
+      activity_id: type === "activity" ? parseInt(values.activityId || "0") : null,
+      district_id: type === "food" ? parseInt(values.districtId || "0") : null,
+      food_id: type === "food" ? parseInt(values.foodId || "0") : null,
+    };
+
+    const result = await addLocation(locationData);
+    if (result) {
+      setOpen(false);
+      form.reset();
+    }
   };
 
   return (
