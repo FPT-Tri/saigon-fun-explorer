@@ -22,9 +22,26 @@ const AIAssistant = ({ type, itemName, districtName }: AIAssistantProps) => {
       let prompt = "";
       
       if (type === "activity") {
-        prompt = `List 5 địa điểm "${itemName}" nổi tiếng và đang hot ở TP.HCM. Hãy cho tôi tên địa điểm cụ thể, địa chỉ chính xác, số điện thoại (nếu có), và một mô tả ngắn về đặc điểm nổi bật của địa điểm. Chỉ liệt kê tối đa 5 địa điểm phù hợp nhất với hoạt động "${itemName}".`;
+        prompt = `Hãy gợi ý 5 địa điểm "${itemName}" nổi tiếng, chất lượng và đang được ưa chuộng ở TP.HCM. Với mỗi địa điểm, hãy cung cấp:
+- Tên địa điểm chính xác
+- Địa chỉ đầy đủ
+- Số điện thoại liên hệ (nếu có)
+- Giờ hoạt động (nếu có)
+- Giá cả tham khảo
+- Đặc điểm nổi bật và lý do nên trải nghiệm
+- Đánh giá và review từ khách hàng (nếu có)
+Chỉ liệt kê tối đa 5 địa điểm phù hợp nhất với hoạt động "${itemName}", sắp xếp theo mức độ phổ biến và chất lượng.`;
       } else {
-        prompt = `List 5 quán "${itemName}" ngon và nổi tiếng ở ${districtName}, TP.HCM, đặc biệt là khu vực đường Nguyễn Gia Trí (D2) nếu có. Hãy cho tôi tên quán cụ thể, địa chỉ chính xác, số điện thoại (nếu có), và đặc sản hay món nổi bật nhất của quán. Chỉ liệt kê tối đa 5 địa điểm phù hợp nhất với món "${itemName}" tại ${districtName}.`;
+        prompt = `Hãy gợi ý 5 quán "${itemName}" ngon, nổi tiếng và được đánh giá cao ở ${districtName}, TP.HCM. Với mỗi quán, hãy cung cấp:
+- Tên quán đầy đủ
+- Địa chỉ chi tiết
+- Số điện thoại liên hệ (nếu có)
+- Giờ mở cửa (nếu có)
+- Khoảng giá
+- Các món đặc trưng và best-seller
+- Không gian và phong cách phục vụ
+- Review và đánh giá từ thực khách (nếu có)
+Chỉ liệt kê tối đa 5 quán phù hợp nhất với món "${itemName}" tại ${districtName}, ưu tiên các quán có nhiều review tích cực và được khuyến nghị bởi food blogger.`;
       }
 
       const result = await getTrendingLocations(prompt);
@@ -32,7 +49,6 @@ const AIAssistant = ({ type, itemName, districtName }: AIAssistantProps) => {
     } catch (err: any) {
       console.error("Error fetching from OpenAI:", err);
       
-      // Hiển thị lỗi trong toast
       toast({
         title: "Lỗi khi gọi AI Assistant",
         description: "Hiện tại API gặp vấn đề. Đang hiển thị dữ liệu mẫu thay thế.",
@@ -54,7 +70,7 @@ const AIAssistant = ({ type, itemName, districtName }: AIAssistantProps) => {
         disabled={loading}
         className="px-4 py-2 bg-primary text-white rounded-md hover:bg-primary/90 transition-colors disabled:opacity-70"
       >
-        {loading ? "Đang tìm kiếm..." : `Tìm địa điểm ${type === "activity" ? itemName : itemName + " tại " + districtName} đang hot`}
+        {loading ? "Đang tìm kiếm..." : `Gợi ý thêm địa điểm ${type === "activity" ? itemName : itemName + " tại " + districtName} phổ biến`}
       </button>
       
       {error && (
