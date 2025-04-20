@@ -1,4 +1,5 @@
 
+import React, { useState } from "react"; 
 import { Dialog, DialogContent, DialogDescription, DialogFooter, DialogHeader, DialogTitle, DialogTrigger } from "@/components/ui/dialog";
 import { Button } from "@/components/ui/button";
 import { Form, FormControl, FormField, FormItem, FormLabel, FormMessage } from "@/components/ui/form";
@@ -31,7 +32,7 @@ interface AddLocationDialogProps {
 export function AddLocationDialog({ type }: AddLocationDialogProps) {
   const { activities, districts, foods } = useDatabase();
   const { addLocation } = useSupabase();
-  const [open, setOpen] = React.useState(false);
+  const [open, setOpen] = useState(false);
   
   const form = useForm<z.infer<typeof formSchema>>({
     resolver: zodResolver(formSchema),
