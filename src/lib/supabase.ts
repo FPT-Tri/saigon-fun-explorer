@@ -1,13 +1,9 @@
 
 import { createClient } from '@supabase/supabase-js';
 
-// Sử dụng biến môi trường với tiền tố VITE_
-const supabaseUrl = import.meta.env.VITE_SUPABASE_URL;
-const supabaseAnonKey = import.meta.env.VITE_SUPABASE_ANON_KEY;
-
-if (!supabaseUrl || !supabaseAnonKey) {
-  throw new Error('Missing Supabase credentials');
-}
+// Sử dụng thông tin xác thực trực tiếp
+const supabaseUrl = 'https://douhedaahxmbeyqxiezv.supabase.co';
+const supabaseAnonKey = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImRvdWhlZGFhaHhtYmV5cXhpZXp2Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3NDUxMjQ2ODMsImV4cCI6MjA2MDcwMDY4M30.Cdutq9_oHyHqCuJsTLqHq_3eyWyeIG2bFk5e5x4KWHY';
 
 // Tạo client với thông tin xác thực
 export const supabase = createClient(
@@ -22,6 +18,5 @@ export const supabase = createClient(
 
 // Hàm kiểm tra xem có thông tin xác thực hay không
 export const hasSupabaseCredentials = () => {
-  return Boolean(supabaseUrl && supabaseAnonKey);
+  return true; // Luôn trả về true vì chúng ta đã cung cấp thông tin xác thực trực tiếp
 };
-
