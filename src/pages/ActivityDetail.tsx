@@ -4,8 +4,9 @@ import { useDatabase } from "../context/DatabaseContext";
 import Layout from "../components/Layout";
 import LocationCard from "../components/LocationCard";
 import AIAssistant from "../components/AIAssistant";
-import { ArrowLeft } from "lucide-react";
+import { ArrowLeft, AlertCircle } from "lucide-react";
 import { useActivityLocationsSupabase } from "../hooks/useActivityLocationsSupabase";
+import { Alert, AlertDescription } from "@/components/ui/alert";
 
 const ActivityDetail = () => {
   const { id } = useParams<{ id: string }>();
@@ -75,10 +76,17 @@ const ActivityDetail = () => {
             {isLoading ? (
               <div className="text-gray-500">Đang tải địa điểm từ database...</div>
             ) : error ? (
-              <div className="text-red-500">Lỗi khi tải địa điểm từ database.</div>
-            ) : (
-              <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
-                {allLocations.map((location) => (
+              <Alert variant="destructive" className="mb-4">
+                <AlertCircle className="h-4 w-4" />
+                <AlertDescription>
+                  Lỗi khi tải địa điểm từ database. Chỉ hiển thị dữ liệu mẫu.
+                </AlertDescription>
+              </Alert>
+            ) : null}
+            
+            <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
+              {allLocations.length > 0 ? (
+                allLocations.map((location) => (
                   <LocationCard 
                     key={location.id + "-" + (location.phone || "")}
                     name={location.name}
@@ -86,9 +94,13 @@ const ActivityDetail = () => {
                     image={location.image}
                     phone={location.phone}
                   />
-                ))}
-              </div>
-            )}
+                ))
+              ) : (
+                <div className="col-span-3 text-center py-8 text-gray-500">
+                  Không có địa điểm nào được tìm thấy cho hoạt động này.
+                </div>
+              )}
+            </div>
 
             <AIAssistant type="activity" itemName={activity.name} />
           </section>
@@ -99,4 +111,3 @@ const ActivityDetail = () => {
 };
 
 export default ActivityDetail;
-

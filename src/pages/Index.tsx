@@ -3,9 +3,13 @@ import { useDatabase } from "../context/DatabaseContext";
 import ActivityCard from "../components/ActivityCard";
 import Layout from "../components/Layout";
 import { AddLocationDialog } from "../components/AddLocationDialog";
+import { Alert, AlertDescription } from "@/components/ui/alert";
+import { AlertCircle } from "lucide-react";
+import { useSupabase } from "../hooks/use-supabase";
 
 const Index = () => {
   const { activities } = useDatabase();
+  const { hasCredentials } = useSupabase();
 
   return (
     <Layout>
@@ -21,8 +25,18 @@ const Index = () => {
                   Những trải nghiệm thú vị tại thành phố Hồ Chí Minh dành cho bạn
                 </p>
               </div>
+              
               <AddLocationDialog type="activity" />
             </div>
+
+            {!hasCredentials() && (
+              <Alert variant="warning" className="mb-6">
+                <AlertCircle className="h-4 w-4" />
+                <AlertDescription>
+                  Bạn cần tạo bảng "locations" trong Supabase để lưu trữ địa điểm mới. Các địa điểm mới sẽ không được lưu cho đến khi bảng được tạo.
+                </AlertDescription>
+              </Alert>
+            )}
 
             <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
               {activities.map((activity) => (
