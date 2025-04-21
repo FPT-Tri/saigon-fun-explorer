@@ -8,8 +8,11 @@ export const useSupabase = () => {
 
   const addLocation = async (location: LocationInsert) => {
     try {
+      // Quyết định bảng dựa trên loại địa điểm
+      const tableName = location.food_id ? 'food_locations' : 'locations';
+      
       const { data, error } = await supabase
-        .from('locations')
+        .from(tableName)
         .insert(location)
         .select()
         .single();

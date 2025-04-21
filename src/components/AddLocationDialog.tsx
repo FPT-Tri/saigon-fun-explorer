@@ -12,7 +12,6 @@ import { PlusCircle } from "lucide-react";
 import { useToast } from "@/hooks/use-toast";
 import { useDatabase } from "../context/DatabaseContext";
 import { useSupabase } from "@/hooks/use-supabase";
-import { Dialog as DialogPrimitive } from "@radix-ui/react-dialog";
 
 const formSchema = z.object({
   name: z.string().min(1, "Tên địa điểm không được để trống"),

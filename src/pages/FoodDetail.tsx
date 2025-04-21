@@ -4,19 +4,24 @@ import { useDatabase } from "../context/DatabaseContext";
 import Layout from "../components/Layout";
 import LocationCard from "../components/LocationCard";
 import AIAssistant from "../components/AIAssistant";
-import { ArrowLeft } from "lucide-react";
+import { ArrowLeft, AlertCircle } from "lucide-react";
+import { useFoodLocationsSupabase } from "../hooks/useFoodLocationsSupabase";
+import { Alert, AlertDescription } from "@/components/ui/alert";
+import { Skeleton } from "@/components/ui/skeleton";
 
 const FoodDetail = () => {
   const { districtId, foodId } = useParams<{ districtId: string; foodId: string }>();
   const navigate = useNavigate();
-  const { getFoodById, getDistrictById, getFoodLocations } = useDatabase();
+  const { getFoodById, getDistrictById } = useDatabase();
   
   const dId = parseInt(districtId || "0");
   const fId = parseInt(foodId || "0");
   
   const food = getFoodById(fId);
   const district = getDistrictById(dId);
-  const locations = getFoodLocations(fId, dId);
+
+  // Lấy food locations từ Supabase
+  const { data: locations, isLoading, error } = useFoodLocationsSupabase(fId, dId);
 
   if (!food || !district) {
     return (
@@ -64,17 +69,45 @@ const FoodDetail = () => {
           <section className="mb-12">
             <h2 className="text-2xl font-bold text-gray-800 mb-6">Địa điểm ăn {food.name} tại {district.name}</h2>
             
-            <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
-              {locations.map((location) => (
-                <LocationCard 
-                  key={location.id}
-                  name={location.name}
-                  address={location.address}
-                  image={location.image}
-                  phone={location.phone}
-                />
-              ))}
-            </div>
+            {isLoading ? (
+              <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
+                {[1, 2, 3].map((i) => (
+                  <div key={i} className="rounded-lg overflow-hidden shadow-md">
+                    <Skeleton className="h-48 w-full" />
+                    <div className="p-4">
+                      <Skeleton className="h-6 w-3/4 mb-2" />
+                      <Skeleton className="h-4 w-full" />
+                    </div>
+                  </div>
+                ))}
+              </div>
+            ) : error ? (
+              <Alert variant="destructive" className="mb-4">
+                <AlertCircle className="h-4 w-4" />
+                <AlertDescription>
+                  Lỗi khi tải địa điểm từ database. Vui lòng thử lại sau.
+                </AlertDescription>
+              </Alert>
+            ) : locations && locations.length > 0 ? (
+              <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
+                {locations.map((location) => (
+                  <LocationCard 
+                    key={location.id}
+                    name={location.name}
+                    address={location.address}
+                    image={location.image}
+                    phone={location.phone}
+                  />
+                ))}
+              </div>
+            ) : (
+              <Alert className="mb-4">
+                <AlertCircle className="h-4 w-4" />
+                <AlertDescription>
+                  Không có địa điểm nào được tìm thấy cho món ăn này tại quận này.
+                </AlertDescription>
+              </Alert>
+            )}
 
             <AIAssistant 
               type="food" 

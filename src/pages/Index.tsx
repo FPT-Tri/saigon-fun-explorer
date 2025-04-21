@@ -6,9 +6,10 @@ import { AddLocationDialog } from "../components/AddLocationDialog";
 import { Alert, AlertDescription } from "@/components/ui/alert";
 import { AlertCircle } from "lucide-react";
 import { useSupabase } from "../hooks/use-supabase";
+import { Skeleton } from "@/components/ui/skeleton";
 
 const Index = () => {
-  const { activities } = useDatabase();
+  const { activities, isLoading } = useDatabase();
   const { hasCredentials } = useSupabase();
 
   return (
@@ -38,11 +39,32 @@ const Index = () => {
               </Alert>
             )}
 
-            <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
-              {activities.map((activity) => (
-                <ActivityCard key={activity.id} activity={activity} />
-              ))}
-            </div>
+            {isLoading ? (
+              <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
+                {[1, 2, 3, 4, 5, 6, 7, 8].map((i) => (
+                  <div key={i} className="rounded-lg overflow-hidden shadow-md">
+                    <Skeleton className="h-48 w-full" />
+                    <div className="p-4">
+                      <Skeleton className="h-6 w-3/4 mb-2" />
+                      <Skeleton className="h-4 w-full" />
+                    </div>
+                  </div>
+                ))}
+              </div>
+            ) : activities.length > 0 ? (
+              <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
+                {activities.map((activity) => (
+                  <ActivityCard key={activity.id} activity={activity} />
+                ))}
+              </div>
+            ) : (
+              <Alert className="mb-6">
+                <AlertCircle className="h-4 w-4" />
+                <AlertDescription>
+                  Không có hoạt động nào được tìm thấy. Vui lòng thêm dữ liệu vào bảng "activities" trong Supabase.
+                </AlertDescription>
+              </Alert>
+            )}
           </section>
         </div>
       </div>
