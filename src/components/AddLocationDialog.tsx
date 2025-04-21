@@ -1,4 +1,3 @@
-
 import React, { useState } from "react"; 
 import { Dialog, DialogContent, DialogDescription, DialogFooter, DialogHeader, DialogTitle, DialogTrigger } from "@/components/ui/dialog";
 import { Button } from "@/components/ui/button";
@@ -13,6 +12,7 @@ import { useToast } from "@/hooks/use-toast";
 import { useDatabase } from "../context/DatabaseContext";
 import { useSupabase } from "@/hooks/use-supabase";
 import { Dialog as DialogPrimitive } from "@radix-ui/react-dialog";
+import { Textarea } from "@/components/ui/textarea";
 
 const formSchema = z.object({
   name: z.string().min(1, "Tên địa điểm không được để trống"),
@@ -31,7 +31,7 @@ interface AddLocationDialogProps {
 
 export function AddLocationDialog({ type }: AddLocationDialogProps) {
   const { activities, districts, foods } = useDatabase();
-  const { addLocation } = useSupabase();
+  const { addLocation, addFoodAddress } = useSupabase();
   const [open, setOpen] = useState(false);
   
   const form = useForm<z.infer<typeof formSchema>>({
@@ -46,26 +46,40 @@ export function AddLocationDialog({ type }: AddLocationDialogProps) {
   });
 
   const onSubmit = async (values: z.infer<typeof formSchema>) => {
-    const locationData = {
-      name: values.name,
-      address: values.address,
-      phone: values.phone,
-      image: values.image,
-      description: values.description,
-      activity_id: type === "activity" ? parseInt(values.activityId || "0") : null,
-      district_id: type === "food" ? parseInt(values.districtId || "0") : null,
-      food_id: type === "food" ? parseInt(values.foodId || "0") : null,
-    };
-
-    const result = await addLocation(locationData);
-    if (result) {
-      setOpen(false);
-      form.reset();
+    if (type === "activity") {
+      const locationData = {
+        name: values.name,
+        address: values.address,
+        phone: values.phone,
+        image: values.image,
+        description: values.description,
+        activity_id: parseInt(values.activityId || "0") || null,
+      };
+      const result = await addLocation(locationData);
+      if (result) {
+        setOpen(false);
+        form.reset();
+      }
+    } else if (type === "food") {
+      const foodAddressData = {
+        name: values.name,
+        address: values.address,
+        phone: values.phone,
+        image: values.image,
+        description: values.description,
+        food_id: parseInt(values.foodId || "0") || null,
+        district_id: parseInt(values.districtId || "0") || null,
+      };
+      const result = await addFoodAddress(foodAddressData);
+      if (result) {
+        setOpen(false);
+        form.reset();
+      }
     }
   };
 
   return (
-    <Dialog>
+    <Dialog open={open} onOpenChange={setOpen}>
       <DialogTrigger asChild>
         <Button variant="outline" className="gap-2">
           <PlusCircle className="h-4 w-4" />
@@ -222,7 +236,7 @@ export function AddLocationDialog({ type }: AddLocationDialogProps) {
                 <FormItem>
                   <FormLabel>Mô tả</FormLabel>
                   <FormControl>
-                    <Input placeholder="Nhập mô tả" {...field} />
+                    <Textarea placeholder="Nhập mô tả" {...field} />
                   </FormControl>
                   <FormMessage />
                 </FormItem>
