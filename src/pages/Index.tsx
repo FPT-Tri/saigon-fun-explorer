@@ -30,7 +30,7 @@ const Index = () => {
             </div>
 
             {!hasCredentials() && (
-              <Alert variant="warning" className="mb-6">
+              <Alert variant="destructive" className="mb-6 bg-amber-50 border-amber-200 text-amber-800">
                 <AlertCircle className="h-4 w-4" />
                 <AlertDescription>
                   Bạn cần tạo bảng "locations" trong Supabase để lưu trữ địa điểm mới. Các địa điểm mới sẽ không được lưu cho đến khi bảng được tạo.
