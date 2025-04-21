@@ -1,8 +1,7 @@
 
 import React, { createContext, useContext, ReactNode } from "react";
+import { activities, activityLocations, districts, foods, foodLocations } from "../data";
 import { Activity, ActivityLocation, District, Food, FoodLocation } from "../types/database";
-import { districts } from "../data/districts/district-list";
-import { useSupabaseData } from "../hooks/useSupabaseData";
 
 interface DatabaseContextProps {
   activities: Activity[];
@@ -10,7 +9,6 @@ interface DatabaseContextProps {
   districts: District[];
   foods: Food[];
   foodLocations: FoodLocation[];
-  isLoading: boolean;
   getActivityById: (id: number) => Activity | undefined;
   getActivityLocations: (activityId: number) => ActivityLocation[];
   getDistrictById: (id: number) => District | undefined;
@@ -22,15 +20,6 @@ interface DatabaseContextProps {
 const DatabaseContext = createContext<DatabaseContextProps | undefined>(undefined);
 
 export const DatabaseProvider: React.FC<{ children: ReactNode }> = ({ children }) => {
-  // Sử dụng dữ liệu từ Supabase
-  const { 
-    activities, 
-    activityLocations, 
-    foods, 
-    foodLocations, 
-    isLoading 
-  } = useSupabaseData();
-
   const getActivityById = (id: number) => {
     return activities.find(activity => activity.id === id);
   };
@@ -65,7 +54,6 @@ export const DatabaseProvider: React.FC<{ children: ReactNode }> = ({ children }
         districts,
         foods,
         foodLocations,
-        isLoading,
         getActivityById,
         getActivityLocations,
         getDistrictById,

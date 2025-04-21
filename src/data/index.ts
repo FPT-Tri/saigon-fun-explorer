@@ -1,6 +1,12 @@
 
+import { activities, activityLocations } from './activities';
 import { districts } from './districts/district-list';
+import { foods, foodLocations } from './foods';
 
 export {
-  districts
+  activities,
+  activityLocations,
+  districts,
+  foods,
+  foodLocations
 };

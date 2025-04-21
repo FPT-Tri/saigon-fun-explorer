@@ -7,18 +7,20 @@ import AIAssistant from "../components/AIAssistant";
 import { ArrowLeft, AlertCircle } from "lucide-react";
 import { useActivityLocationsSupabase } from "../hooks/useActivityLocationsSupabase";
 import { Alert, AlertDescription } from "@/components/ui/alert";
-import { Skeleton } from "@/components/ui/skeleton";
 
 const ActivityDetail = () => {
   const { id } = useParams<{ id: string }>();
   const navigate = useNavigate();
-  const { getActivityById } = useDatabase();
+  const { getActivityById, getActivityLocations } = useDatabase();
 
   const activityId = parseInt(id || "0");
   const activity = getActivityById(activityId);
 
+  // Lấy activity locations từ local (sample data)
+  const sampleLocations = getActivityLocations(activityId);
+
   // Lấy activity locations từ Supabase
-  const { data: locations, isLoading, error } = useActivityLocationsSupabase(activityId);
+  const { data: supabaseLocations, isLoading, error } = useActivityLocationsSupabase(activityId);
 
   if (!activity) {
     return (
@@ -35,6 +37,12 @@ const ActivityDetail = () => {
       </Layout>
     );
   }
+
+  // Gộp 2 nguồn dữ liệu lại (database nằm phía trên)
+  const allLocations = [
+    ...(supabaseLocations || []),
+    ...sampleLocations,
+  ];
 
   return (
     <Layout>
@@ -66,44 +74,33 @@ const ActivityDetail = () => {
             <h2 className="text-2xl font-bold text-gray-800 mb-6">Địa điểm {activity.name}</h2>
             
             {isLoading ? (
-              <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
-                {[1, 2, 3].map((i) => (
-                  <div key={i} className="rounded-lg overflow-hidden shadow-md">
-                    <Skeleton className="h-48 w-full" />
-                    <div className="p-4">
-                      <Skeleton className="h-6 w-3/4 mb-2" />
-                      <Skeleton className="h-4 w-full" />
-                    </div>
-                  </div>
-                ))}
-              </div>
+              <div className="text-gray-500">Đang tải địa điểm từ database...</div>
             ) : error ? (
               <Alert variant="destructive" className="mb-4">
                 <AlertCircle className="h-4 w-4" />
                 <AlertDescription>
-                  Lỗi khi tải địa điểm từ database. Vui lòng thử lại sau.
+                  Lỗi khi tải địa điểm từ database. Chỉ hiển thị dữ liệu mẫu.
                 </AlertDescription>
               </Alert>
-            ) : locations && locations.length > 0 ? (
-              <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
-                {locations.map((location) => (
+            ) : null}
+            
+            <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
+              {allLocations.length > 0 ? (
+                allLocations.map((location) => (
                   <LocationCard 
-                    key={location.id}
+                    key={location.id + "-" + (location.phone || "")}
                     name={location.name}
                     address={location.address}
                     image={location.image}
                     phone={location.phone}
                   />
-                ))}
-              </div>
-            ) : (
-              <Alert className="mb-4">
-                <AlertCircle className="h-4 w-4" />
-                <AlertDescription>
+                ))
+              ) : (
+                <div className="col-span-3 text-center py-8 text-gray-500">
                   Không có địa điểm nào được tìm thấy cho hoạt động này.
-                </AlertDescription>
-              </Alert>
-            )}
+                </div>
+              )}
+            </div>
 
             <AIAssistant type="activity" itemName={activity.name} />
           </section>
