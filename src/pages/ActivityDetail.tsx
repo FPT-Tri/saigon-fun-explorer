@@ -5,15 +5,21 @@ import Layout from "../components/Layout";
 import LocationCard from "../components/LocationCard";
 import AIAssistant from "../components/AIAssistant";
 import { ArrowLeft } from "lucide-react";
+import { useActivityLocationsSupabase } from "../hooks/useActivityLocationsSupabase";
 
 const ActivityDetail = () => {
   const { id } = useParams<{ id: string }>();
   const navigate = useNavigate();
   const { getActivityById, getActivityLocations } = useDatabase();
-  
+
   const activityId = parseInt(id || "0");
   const activity = getActivityById(activityId);
-  const locations = getActivityLocations(activityId);
+
+  // Lấy activity locations từ local (sample data)
+  const sampleLocations = getActivityLocations(activityId);
+
+  // Lấy activity locations từ Supabase
+  const { data: supabaseLocations, isLoading, error } = useActivityLocationsSupabase(activityId);
 
   if (!activity) {
     return (
@@ -30,6 +36,12 @@ const ActivityDetail = () => {
       </Layout>
     );
   }
+
+  // Gộp 2 nguồn dữ liệu lại (database nằm phía trên)
+  const allLocations = [
+    ...(supabaseLocations || []),
+    ...sampleLocations,
+  ];
 
   return (
     <Layout>
@@ -60,17 +72,23 @@ const ActivityDetail = () => {
           <section className="mb-12">
             <h2 className="text-2xl font-bold text-gray-800 mb-6">Địa điểm {activity.name}</h2>
             
-            <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
-              {locations.map((location) => (
-                <LocationCard 
-                  key={location.id}
-                  name={location.name}
-                  address={location.address}
-                  image={location.image}
-                  phone={location.phone}
-                />
-              ))}
-            </div>
+            {isLoading ? (
+              <div className="text-gray-500">Đang tải địa điểm từ database...</div>
+            ) : error ? (
+              <div className="text-red-500">Lỗi khi tải địa điểm từ database.</div>
+            ) : (
+              <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
+                {allLocations.map((location) => (
+                  <LocationCard 
+                    key={location.id + "-" + (location.phone || "")}
+                    name={location.name}
+                    address={location.address}
+                    image={location.image}
+                    phone={location.phone}
+                  />
+                ))}
+              </div>
+            )}
 
             <AIAssistant type="activity" itemName={activity.name} />
           </section>
@@ -81,3 +99,4 @@ const ActivityDetail = () => {
 };
 
 export default ActivityDetail;
+
